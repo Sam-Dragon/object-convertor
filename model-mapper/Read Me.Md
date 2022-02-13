@@ -1,24 +1,21 @@
 ## Steps
 
-## Installation
-1. Download Lombok from 
-https://projectlombok.org/download
+# Project
+1. Include the following implementation
+    implementation 'org.modelmapper:modelmapper:2.3.0'
 
-2. Install lombok to the your editor directory [where launcher is present]
-C:\Users\<User>\Downloads\sts-4.13.1.RELEASE
+2. Configure them as bean to be utilized
+	@Configuration
+	public class ApplicationConfig {
+		@Bean
+		public ModelMapper modelMapper() {
+			return new ModelMapper();
+		}
+	}
 
-3. Once installed, verify the lombok.jar file in above path
+3. Access them where conversion is required
+	@Autowired
+	private ModelMapper mapper; 
 
-# Editor [Eclipse, STS]
-1. Restart the editor and try adding lombok annotations
-- In case lombok seems to be not installed, try restarting again 
-& delete lombok annotations and re-import them
-
-
-## Development
-1. Finally, create use that object to dump data
-
-
-## Annotations
-- @Data ==> @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
-- @NoArgsConstructor, @AllArgsConstructor
+4. Call mapper methods
+	mapper.map(ACTUAL_OBJECT, CONVERTED_OBJECT.class);
