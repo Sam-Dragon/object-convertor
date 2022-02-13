@@ -1,0 +1,7 @@
+{
+    "name": "Product",
+    "address": "Product Address",
+    "age": 45,
+    "gender": "F",
+    "isReferred": true
+}

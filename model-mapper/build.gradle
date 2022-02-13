@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'learn.lombok'
+version = '0.0.1'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	implementation 'org.modelmapper:modelmapper:2.3.0'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
